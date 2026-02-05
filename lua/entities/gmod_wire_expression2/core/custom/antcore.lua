@@ -98,10 +98,10 @@ AntCore.customAttackers = {}
 AntCore.customInflictors = {}
 
 -- max propSpawn per second with propSpawnAsync
-AntCore.propSpawnTimes = {} -- modified propSpawn allow solid times (indexed by player)
+--AntCore.propSpawnTimes = {} -- modified propSpawn allow solid times (indexed by player)
 -- this can be really high due to how async spawning works
-AntCore.propspawn_async_maxpersec = CreateConVar("antcore_propspawn_async_maxpersec","60",FCVAR_ARCHIVE)
-AntCore.propspawn_async_enabled = CreateConVar("antcore_propspawn_async_enabled","1",FCVAR_ARCHIVE)
+--AntCore.propspawn_async_maxpersec = CreateConVar("antcore_propspawn_async_maxpersec","60",FCVAR_ARCHIVE)
+--AntCore.propspawn_async_enabled = CreateConVar("antcore_propspawn_async_enabled","1",FCVAR_ARCHIVE)
 
 function AntCore.copy(t)
   local u = {}
@@ -2304,7 +2304,7 @@ e2function number entity:ctpEnabled() -- customisable third person addon
 	return this:GetInfoNum("ctp_enabled", 0)
 end
 
--- this is for propSpawnASync(n)
+--[[ -- this is for propSpawnASync(n)
 timer.Simple(0, function() -- timer is required to override PropCore functions
 if PropCore then -- extend some propcore functions if propcore is installed
 	
@@ -2323,7 +2323,7 @@ if PropCore then -- extend some propcore functions if propcore is installed
 	end
 	end
 	
-	--[[ if PropCore.ValidSpawn then
+	if PropCore.ValidSpawn then
 	AntCore.defaultValidSpawn = PropCore.ValidSpawn
 	PropCore.ValidSpawn = function() return true end -- disabled so propcore doesnt use internally
 	
@@ -2336,7 +2336,7 @@ if PropCore then -- extend some propcore functions if propcore is installed
 		if AntCore.defaultValidSpawn() then return 1 end
 		return 0
 	end)
-	end ]]
+	end
 	
 	if PropCore.PhysManipulate then
 	AntCore.defaultPhysManipulate = PropCore.PhysManipulate
@@ -2401,7 +2401,7 @@ end)
 __e2setcost(1)
 e2function void propSpawnASync(number enable)
 	if enable then self.data.propSpawnASync = true else self.data.propSpawnASync = nil end
-end
+end ]]
 
 __e2setcost(2)
 e2function number change(number value)
