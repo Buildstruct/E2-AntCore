@@ -2323,7 +2323,7 @@ if PropCore then -- extend some propcore functions if propcore is installed
 	end
 	end
 	
-	if PropCore.ValidSpawn then
+	--[[ if PropCore.ValidSpawn then
 	AntCore.defaultValidSpawn = PropCore.ValidSpawn
 	PropCore.ValidSpawn = function() return true end -- disabled so propcore doesnt use internally
 	
@@ -2336,7 +2336,7 @@ if PropCore then -- extend some propcore functions if propcore is installed
 		if AntCore.defaultValidSpawn() then return 1 end
 		return 0
 	end)
-	end
+	end ]]
 	
 	if PropCore.PhysManipulate then
 	AntCore.defaultPhysManipulate = PropCore.PhysManipulate
